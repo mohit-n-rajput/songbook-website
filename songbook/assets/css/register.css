@@ -1,0 +1,205 @@
+html,body{
+    padding: 0px;
+    margin: 0px;
+    height: 100%;
+
+}
+#background-div{
+    background-color: #fff;
+    background-image: url(/songbook/assets/images/bg2.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: table;
+    height: 100%;
+    width: 100%;
+    background-size: 120% 120%;
+    background: linear-gradient(-45deg);
+    -webkit-animation: Gradient 15s ease infinite;
+    -moz-animation: Gradient 15s ease infinite;
+    animation: Gradient 30s ease infinite;
+}
+@-moz-keyframes Gradient {
+    0% {
+        background-position: 0% 50%
+    }
+    50% {
+        background-position: 100% 50%
+    }
+    100% {
+        background-position: 0% 50%
+    }
+}
+
+@keyframes Gradient {
+    0% {
+        background-position: 0% 50%
+    }
+    50% {
+        background-position: 100% 50%
+    }
+    100% {
+        background-position: 0% 50%
+    }
+}
+
+
+
+/*apply to all div-container*/
+#login-Container *{
+    color: #fff;
+    font-family: "Helvetica Neue","Helvetica","Arial",sans-serif;
+    font-weight: normal;
+    line-height: 1em;
+    box-sizing: border-box;
+}
+
+#login-Container {
+    width: 80%;
+    margin: 0px auto;
+    /*relative means realtive to parent.*/
+    position: relative;
+    /*No matter how big your screen width not go max out of 1024px*/
+    max-width: 1024px;
+}
+
+#input-Container {
+    width: 400px;
+    padding: 40px;
+    float: left;
+    border-right: 1px solid #999;
+}
+
+/* Style for placeHolder */
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:    #fff;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    #fff;
+   opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    #fff;
+   opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color:    #fff;
+}
+::-ms-input-placeholder { /* Microsoft Edge */
+   color:    #fff;
+}
+
+
+
+#input-Container h2 {
+    text-align: center;
+    color: #0f0;
+    margin-bottom: 5px;
+}
+
+/* css selector for input type.*/
+#input-Container input[type="text"],input[type="email"],input[type="password"]{
+    display: block;
+    background-color: transparent;
+    border: 0;
+    border: none transparent;
+    outline: none;
+    border-bottom: 1px solid #fff;
+    height: 27px;
+    line-height: 27px;
+    width: 100%;
+    margin: 5px auto;
+    font-size: 14px;
+    padding-top:4px;
+
+}
+
+/* css selector for label.*/
+#input-Container label{
+    color: #a0a0a0;
+    font-weight: bold;
+    font-size: 16px;
+    margin-top: 16px;
+    display: block;
+
+}
+
+/* css selector for label.*/
+#input-Container button{
+    background-color: transparent;
+    border: none transparent;
+    outline: none;
+    border: 2px solid #fff;
+    border-radius: 250px;
+    color: #fff;
+    display: block;
+    font-size: 16px;
+    letter-spacing: 2px;
+    margin: 20px auto;
+    height: 41px;
+    /* 100 % of container.*/
+    width: 100%;
+}
+
+#input-Container button:hover{
+    cursor: pointer;
+}
+
+/* Hide Login and Register section*/
+.hasAccountText span{
+    font-weight: bold;
+    font-size: 13px;
+    cursor: pointer;
+}
+/*.hasAccountText span:hover{
+    cursor: pointer;
+}*/
+
+.hasAccountText {
+    text-align: center;
+}
+
+/* Style for Register Form */
+#registerForm,#loginForm{
+    display: none;  /* it not load when page refresh.*/
+}
+
+/* text right to input-container ,right-text css style */
+#rightLoginText {
+    padding: 30px 50px;
+    display: table-cell;
+}
+
+#rightLoginText h1{
+    color: #07d159;
+    font-size: 55px;
+    font-weight: bold;
+}
+#rightLoginText h2{
+    margin: 35px 0;
+    letter-spacing: 2px;
+}
+
+#rightLoginText ul {
+    padding: 0;
+    letter-spacing: 2px;
+
+}
+
+/* we add chckmark in the list by add icon.*/
+#rightLoginText li{
+    font-size: 18px;
+    list-style-type: none;
+    padding: 5px 32px;
+    background: url(../images/icons/checkmark.png) no-repeat 0 0;
+}
+
+
+/* STYLING THE ERROR MESSAGE, we write in desciptive container. */
+#input-Container .errorMessage {
+    font-size: 14px;
+    display: block;
+    color: #CD5C5C;
+    font-weight: bold;
+}
+

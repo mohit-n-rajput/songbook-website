@@ -1,0 +1,652 @@
+html, body {
+	padding: 0;
+	margin: 0;
+	height: 100%;
+}
+
+*:hover {
+    outline: none;
+}
+
+
+* {
+    font-family: "Helvetica Neue","Helvetica","Arial",sans-serif;
+    color: #fff;
+    letter-spacing: 1px;
+}
+
+body{
+    background-color: #232F3D;
+    font-size: 14px;
+    min-width: 720px;
+}
+/* ORIGINAL #252D41  #293f65
+     position: fixed this property is responsible to show over navBar.
+ */
+#nowPlayingBarContainer {
+	width: 100%;
+    background-color: #293f65;
+    bottom: 0;
+    position: fixed;
+    min-width: 620px;
+}
+
+#nowPlayingBar {
+	display: flex;
+    height: 90px;
+    padding: 16px;
+    box-sizing: border-box;
+}
+
+#nowPlayingLeft,
+#nowPlayingRight {
+	width: 30%;
+    min-width: 180px;
+}
+
+#nowPlayingRight {
+    margin-top: 16px;
+    position: relative;
+}
+
+
+#nowPlayingCenter {
+	width: 40%;
+    max-width: 700px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#nowPlayingBar .content {
+	width: 100%;
+	height: 57px;
+}
+
+.playerControls .buttons {
+	margin: 0 auto;
+    display: table;
+
+}
+
+/* border: none;
+    outline:none;
+    use for remove the button Border.*/
+.controlButton {
+	background-color: transparent;
+    border: none;
+    vertical-align: middle;
+    /*border: none;
+    outline:none;*/
+}
+
+.controlButton img {
+	width: 20px;
+    height: 20px;
+}
+
+.controlButton.play img,
+.controlButton.pause img {
+	width: 35px;
+	height: 35px;
+}
+
+.controlButton:hover {
+	cursor: pointer;
+}
+
+.minus {
+    color: #a0a0a0;
+    text-align: center;
+}
+.progressTime {
+	color: #a0a0a0;
+    font-size: 12px;
+    min-width: 40px;
+    text-align: center;
+}
+
+.playbackBar {
+	display: flex;
+}
+
+.progressBar {
+	width: 100%;
+    height: 12px;
+    display: inline-flex;
+    cursor: pointer;
+
+}
+
+.progressBarBg {
+	background-color: rgba(30,30,10,0.85);
+    height: 4px;
+    width: 100%;
+    border-radius: 2px;
+    margin-top: 2px;
+}
+
+.progress {
+	background-color: #a0a0a0;
+    height: 4px;
+    width: 0%;
+    border-radius: 2px;
+}
+
+.playbackBar .progressBar {
+	margin-top: 3.5px;
+}
+
+/* volume Bar*/
+
+
+/* Image styeing*/
+#nowPlayingLeft .albumImage {
+    height: 100%;
+    max-width: 57px;
+    margin-right: 15px;
+    float: left;
+    background-size: cover;
+}
+
+/* Track Info*/
+#nowPlayingLeft .trackInfo {
+    display: table;
+}
+
+
+#nowPlayingLeft .trackInfo .trackName {
+    margin: 6px 0;
+    display: inline-block;
+    width: 100%;
+}
+
+#nowPlayingLeft .trackInfo .artistName span {
+    font-size: 12px;
+    color: #a0a0a0;
+}
+
+/* volume Bar*/
+.volumeBar {
+    width: 180px;
+    position: absolute;
+    right: 0;
+}
+
+.volumeBar .progressBar {
+    width: 125px;
+}
+
+/* TOP CONTAINER */
+#topContainer {
+    min-height: 100%;
+    width: 100%;
+}
+
+/* navBarContainer .
+ * vh: vh means view-height;
+ original color: rgba(37,60,45,0.93);
+ rgba(30,30,10,0.85)
+ #36383b
+*/
+#navBarContainer {
+    background-color: rgba(30,30,10,0.85);
+    width: 220px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.navBar {
+    padding: 25px;
+    padding-left: 30px;
+    display: flex;
+    flex-direction: column;
+    -ms-flex-direction: column;
+}
+
+.logo {
+    margin-bottom: 15px;
+    cursor: pointer;
+    outline: none;
+}
+
+.logo img {
+    width: 50px;
+    border: none solid #a0a0a0;
+    padding: 3px;
+    padding-left: 0;
+}
+
+/* all navigation logo, except profile*/
+.navBar .group{
+    padding-top: 10px 0;
+    border-top: 2px solid #a0a0a0;
+
+}
+
+/* nav items search,music,user,browse */
+.navItem {
+    padding: 15px 0;
+    font-size: 14px;
+    font-weight: 700;
+    display: block;
+    letter-spacing: 3px;
+    position: relative;
+    cursor: pointer;
+
+}
+
+.navItemLink {
+    color: #a0a0a0;
+    text-decoration: none;
+    outline: none;
+}
+
+.navItemLink:hover  {
+    color: #3aa0d6;
+}
+
+/* style for search icon.*/
+.navItemLink .icon {
+    position: absolute;
+    right: 0;
+    top: 12px;
+    width: 25px;
+}
+
+#copyright{
+    padding: 15px 0;
+    font-size: 10px;
+    font-weight: 500;
+    display: block;
+    letter-spacing: 2px;
+    position: relative;
+    margin-top: 5px;
+    color: #a0a0a0;
+}
+
+/* main view contianer
+    width of navbarContainer=  220px
+    height of playbar container= 90px
+*/
+/* this code is responsible for enable the scroll bar.*/
+#mainViewContainer {
+    margin-left: 220px;
+    padding-bottom: 90px;
+    width: calc(100% - 220px);
+}
+
+#mainContent {
+    padding: 0 20px;
+}
+
+/* main page music and album info */
+.pageHeadingBig {
+    padding: 20px;
+    text-align: center;
+}
+
+/* styling for gridviewItem */
+.gridNoOutline {
+    outline: none;
+    cursor: pointer;
+}
+
+.gridViewItem {
+    display: inline-block;
+    margin: 20px;
+    width: 30%;
+    max-width: 200px;
+    min-width: 150px;
+    outline: none;  /* remove outline from album grid image and text.*/
+}
+
+.gridViewItem img {
+    width: 100%;
+    outline: none;
+}
+
+/* ellipsis give 3 dots instead of long text so , our div is not messed up */
+.gridViewInfo {
+    font-weight: 300;
+    padding: 5px 0;
+    text-align: center;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.gridViewItem {
+    outline: none;
+}
+.gridViewItem a {
+    text-decoration: none;
+}
+
+/* Style for Album entityInfo div*/
+.entityInfo {
+    padding: 40px 0 10px 0;
+    display: inline-block;
+    width: 100%;
+}
+
+.entityInfo .leftSection{
+    float: left;
+    width: 30%;
+    max-width: 250px;
+}
+
+.entityInfo .leftSection img {
+    width: 100%;
+}
+
+.entityInfo .rightSection {
+    float: left;
+    width: 70%;
+
+    padding: 5px 10px 5px 40px;
+    box-sizing: border-box;
+}
+
+.entityInfo .rightSection h2 {
+    margin-top: 0px;
+    color: #fff;
+
+}
+
+.entityInfo .rightSection p{
+    color: #cfd0ce;
+    font-weight: 300;
+
+}
+
+/* trackList:for ul , trackListcontainer ,  trackListRow:for li*/
+.trackList {
+    padding: 0;
+}
+
+.trackListRow {
+    height: 40px;
+    padding: 15px 10px;
+    list-style: none;
+}
+
+.trackListRow span {
+    color: #939393;
+    font-weight: 200;
+}
+
+.trackListRow:hover {
+    background-color: #282828;
+}
+/* song number in album*/
+.trackListRow .trackCount {
+    width: 8%;
+    float: left;
+}
+
+/* if we selct play as a class of image image of button not disappear.
+    search: difference between visibility=hidden vs display=none;
+*/
+.trackListRow .trackCount img {
+    width: 20px;
+    visibility: hidden;
+    position: absolute;
+    cursor: pointer;
+}
+
+/* to visible the play button image */
+.trackListRow:hover .trackCount img {
+    visibility: visible;
+
+}
+/* info for song number */
+.trackListRow .trackCount span {
+    visibility: visible;
+
+}
+
+.trackListRow:hover .trackCount span {
+    visibility: hidden;
+}
+
+/* css for trackInfo */
+.trackListRow .trackInfo {
+    width: 75%;
+    float: left;
+}
+
+.trackListRow .trackInfo span {
+    display: block;
+}
+
+.trackListRow .trackInfo span {
+    display: block;
+}
+
+.trackListRow .trackInfo .trackName {
+    color: rgba(255,255,255);
+    margin-bottom: 7px;
+    letter-spacing: 1.5px;
+}
+
+/* style for 3 dot option */
+.trackListRow .trackOption {
+    width: 5%;
+    float: left;
+    text-align: right;
+}
+
+.trackListRow .trackOption img{
+    width: 15px;
+    visibility: hidden;
+}
+
+.trackListRow:hover .trackOption img{
+    visibility: visible;
+}
+
+.trackOption img:hover {
+    cursor: pointer;
+}
+
+/* style for track duartion ,we use width in % so , if we minimize the webiste it will auto small in width. which is like responsive. */
+.trackListRow .trackDuration {
+    width: 12%;
+    float: left;
+    text-align: right;
+}
+
+
+/* style for the artist Info header info*/
+.artistInfo {
+    text-align: center;
+}
+
+/* for deafualt button */
+.button {
+    color: #fff;
+    cursor: pointer;
+    margin-bottom: 10px;
+    background-color: transparent;
+    font-weight: 500;
+    letter-spacing: 2px;
+    border: 2px solid #fff;
+    border-radius: 500px;
+    padding: 15px;
+    min-width: 130px;
+    outline: none;
+}
+
+/* change button color*/
+.button.green {
+    background-color: #2ebd59;
+    border-color: #2ebd59;
+}
+
+/* show the border botton to the each info div.*/
+.borderBottom {
+    border-bottom: 1px solid #939393;
+    margin-bottom: 20px;
+}
+
+/* heading for songs and albums.*/
+.tracklistContainer h2,
+.gridViewContainer h2,.artistsContainer h2{
+    text-align: center;
+}
+
+/* to active the left portion of playing bar container. */
+[role="link"] {
+    cursor: pointer;
+}
+
+/* style for search page.*/
+.searchContainer {
+    background-color: #232f3d;
+    border-bottom:3px solid #fff;
+    padding: 20px 28px;
+}
+
+.searchContainer h4 {
+    margin: 0;
+    font-weight: 500;
+    margin-bottom: 3px;
+    color: #3aa0d6;
+    font-size: 16px;
+}
+
+.searchContainer .searchInput {
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    font-weight: 700;
+    font-size: 62px;
+    letter-spacing: 2px;
+}
+
+input:focus {
+    outline: none;
+}
+
+/* style for the search result row.*/
+.searchResultRow {
+    padding: 15px 10px;
+}
+
+.searchResultRow:hover {
+    background-color: #282828;
+}
+
+.searchResultRow .artistName span {
+    color: #fff;
+}
+
+.noResults {
+    margin: 15px;
+    display: block;
+}
+
+/* style for the playlist page*/
+.buttonItems .button {
+    display: block;
+    margin: 0 auto 20px auto;
+}
+
+.playlistsContainer {
+    padding: 10px 0;
+}
+
+/* style for playlist Image*/
+.playlistImage {
+    border: 3px solid #282828;
+
+}
+
+/* style for playlist name*/
+.playlistName {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+/* styling for options menu*/
+.optionsMenu {
+    position: fixed;
+    background-color: #282828;
+    width: 200px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 3px;
+    z-index: 1000;
+    display: none;
+}
+
+.optionsMenu .item {
+    width: 100%;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    font-weight: 400;
+    color: rgba(147, 147, 147, 0.8);
+    cursor: pointer;
+    height: 40px;
+    background-color: #282828;
+    font-size: 14px;
+}
+
+.optionsMenu .item:hover {
+    color: #fff;
+    background-color: #333;
+    border-color: #333;
+}
+
+/* style the select tag of optionsMenu class.*/
+.optionsMenu select {
+    border: none;
+    /* use for remove the updown button show on select tag.*/
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+/* style for setting page*/
+.userInfo h1 {
+    text-align: center;
+    color: #2ebc59;
+}
+
+/* style for the updateDetails page.*/
+.userDetails {
+    padding: 20px;
+}
+
+.userDetails .container h2 {
+    text-align: center;
+}
+
+.userDetails .container input[type="text"],
+.userDetails .container input[type="password"],
+.userDetails .container .button {
+    display: block;
+    margin: 16px auto;
+}
+
+.userDetails .container input[type="text"],
+.userDetails .container input[type="password"] {
+    height: 50px;
+    width: 100%;
+    background: #1f1f1f;
+    border: none;
+    font-size: 18px;
+    font-weight: 300;
+    padding: 0 20px;
+}
+
+/* for span message.*/
+.userDetails .container .message {
+    color: #2ebd59;
+    font-weight: 400;
+    font-size: 16px;
+    padding-left: 5px;
+}
